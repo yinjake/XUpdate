@@ -31,5 +31,6 @@ public final class Constants {
 
     public static final String IGNORE_UPDATE_URL = "https://gitee.com/xuexiangjys/XUpdate/raw/master/jsonapi/update_ignore.json";
 
-    public static final String XUPDATE_DEMO_DOWNLOAD_URL = "https://xuexiangjys.oss-cn-shanghai.aliyuncs.com/apk/xupdate_demo_1.0.2.apk";
+   // public static final String XUPDATE_DEMO_DOWNLOAD_URL = "https://xuexiangjys.oss-cn-shanghai.aliyuncs.com/apk/xupdate_demo_1.0.2.apk";
+    public static final String XUPDATE_DEMO_DOWNLOAD_URL = "http://47.92.200.200:8086/update/apk/TxzPlugin.apk";
 }

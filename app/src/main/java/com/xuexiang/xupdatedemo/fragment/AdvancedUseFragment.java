@@ -61,75 +61,75 @@ public class AdvancedUseFragment extends XPageSimpleListFragment {
 
     @Override
     protected List<String> initSimpleData(List<String> lists) {
-        lists.add("默认App更新 + 自定义提示弹窗主题");
-        lists.add("默认App更新 + 自定义Api");
-        lists.add("默认App更新 + 自定义Api + 自定义提示弹窗(系统）");
-        lists.add("直接传入UpdateEntity进行更新");
+      //  lists.add("默认App更新 + 自定义提示弹窗主题");
+       // lists.add("默认App更新 + 自定义Api");
+        //lists.add("默认App更新 + 自定义Api + 自定义提示弹窗(系统）");
+       // lists.add("直接传入UpdateEntity进行更新");
         lists.add("使用apk下载功能");
-        lists.add("使用apk安装功能");
+        //lists.add("使用apk安装功能");
         return lists;
     }
 
     @Override
     protected void onItemClick(int position) {
         switch (position) {
-            case 0:
-                XUpdate.newBuild(getActivity())
-                        .updateHttpService(new XHttpUpdateHttpService("https://gitee.com"))
-                        .updateUrl("/xuexiangjys/XUpdate/raw/master/jsonapi/update_test.json")
-                        .promptThemeColor(ResUtils.getColor(R.color.update_theme_color))
-                        .promptButtonTextColor(Color.WHITE)
-                        .promptTopDrawable(ResUtils.getDrawable(getContext(), R.mipmap.bg_update_top))
-//                        .promptTopResId(R.mipmap.bg_update_top)
-                        .promptWidthRatio(0.7F)
-                        .update();
-                break;
-            case 1:
-                XUpdate.newBuild(getActivity())
-                        .updateUrl(Constants.CUSTOM_UPDATE_URL)
-                        .updateParser(new CustomUpdateParser())
-                        .update();
-                break;
-            case 2:
-                XUpdate.newBuild(getActivity())
-                        .updateUrl(Constants.CUSTOM_UPDATE_URL)
-                        .updateChecker(new DefaultUpdateChecker() {
-                            @Override
-                            public void onBeforeCheck() {
-                                super.onBeforeCheck();
-                                CProgressDialogUtils.showProgressDialog(getActivity(), "查询中...");
-                            }
-
-                            @Override
-                            public void onAfterCheck() {
-                                super.onAfterCheck();
-                                CProgressDialogUtils.cancelProgressDialog(getActivity());
-                            }
-
-                            @Override
-                            public void noNewVersion(Throwable throwable) {
-                                super.noNewVersion(throwable);
-                                // 没有最新版本的处理
-                            }
-                        })
-                        .updateParser(new CustomUpdateParser())
-                        .updatePrompter(new CustomUpdatePrompter())
-                        .update();
-                break;
-            case 3:
-                XUpdate.newBuild(getActivity())
-                        .supportBackgroundUpdate(true)
-//                        // 忽略下载异常，不关闭更新提示窗
-//                        .promptIgnoreDownloadError(true)
-                        .build()
-                        .update(getUpdateEntityFromAssets());
-                break;
+//            case 0:
+//                XUpdate.newBuild(getActivity())
+//                        .updateHttpService(new XHttpUpdateHttpService("https://gitee.com"))
+//                        .updateUrl("/xuexiangjys/XUpdate/raw/master/jsonapi/update_test.json")
+//                        .promptThemeColor(ResUtils.getColor(R.color.update_theme_color))
+//                        .promptButtonTextColor(Color.WHITE)
+//                        .promptTopDrawable(ResUtils.getDrawable(getContext(), R.mipmap.bg_update_top))
+////                        .promptTopResId(R.mipmap.bg_update_top)
+//                        .promptWidthRatio(0.7F)
+//                        .update();
+//                break;
+//            case 1:
+//                XUpdate.newBuild(getActivity())
+//                        .updateUrl(Constants.CUSTOM_UPDATE_URL)
+//                        .updateParser(new CustomUpdateParser())
+//                        .update();
+//                break;
+//            case 2:
+//                XUpdate.newBuild(getActivity())
+//                        .updateUrl(Constants.CUSTOM_UPDATE_URL)
+//                        .updateChecker(new DefaultUpdateChecker() {
+//                            @Override
+//                            public void onBeforeCheck() {
+//                                super.onBeforeCheck();
+//                                CProgressDialogUtils.showProgressDialog(getActivity(), "查询中...");
+//                            }
+//
+//                            @Override
+//                            public void onAfterCheck() {
+//                                super.onAfterCheck();
+//                                CProgressDialogUtils.cancelProgressDialog(getActivity());
+//                            }
+//
+//                            @Override
+//                            public void noNewVersion(Throwable throwable) {
+//                                super.noNewVersion(throwable);
+//                                // 没有最新版本的处理
+//                            }
+//                        })
+//                        .updateParser(new CustomUpdateParser())
+//                        .updatePrompter(new CustomUpdatePrompter())
+//                        .update();
+//                break;
+//            case 3:
+//                XUpdate.newBuild(getActivity())
+//                        .supportBackgroundUpdate(true)
+////                        // 忽略下载异常，不关闭更新提示窗
+////                        .promptIgnoreDownloadError(true)
+//                        .build()
+//                        .update(getUpdateEntityFromAssets());
+//                break;
             case 4:
                 useApkDownLoadFunction();
                 break;
-            case 5:
-                selectAPKFile();
-                break;
+//            case 5:
+//                selectAPKFile();
+//                break;
             default:
                 break;
         }
